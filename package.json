@@ -1,0 +1,22 @@
+{
+  "name": "reselect-benchmarks",
+  "version": "1.0.0",
+  "description": "reselect-benchmarks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sin9k/reselect-benchmarks.git"
+  },
+  "author": "Baltsevich Alexander",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sin9k/reselect-benchmarks/issues"
+  },
+  "homepage": "https://github.com/Sin9k/reselect-benchmarks#readme",
+  "dependencies": {
+    "reselect": "4.1.5"
+  }
+}
