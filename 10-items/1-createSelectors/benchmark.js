@@ -1,14 +1,27 @@
+const { PerformanceObserver, performance } = require("perf_hooks");
+
 const state = require("../state");
 const selectors = require("./selectors");
 
 const { selectTotal } = selectors;
 
-const start = new Date();
+const obs = new PerformanceObserver((items) => {
+  items.getEntries().forEach((item) => {
+    console.log(item.name, +" " + item.duration);
+  });
+});
+
+obs.observe({ entryTypes: ["measure"], buffer: true });
+
+performance.mark("10-items/1-createSelectors - start");
 
 for (let i = 0; i < 99_999_999; i++) {
   selectTotal(state);
 }
 
-const stop = new Date();
-
-console.log(`Time Taken to execute = ${(stop - start) / 1000} seconds`);
+performance.mark("10-items/1-createSelectors - end");
+performance.measure(
+  "10-items/1-createSelectors",
+  "10-items/1-createSelectors - start",
+  "10-items/1-createSelectors - end"
+);
